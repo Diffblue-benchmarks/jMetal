@@ -1,0 +1,372 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+  no-trivial-tests: true
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+units:
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/wasfga/WASFGAMeasures.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/wasfga/WASFGAMeasures.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/Measurable.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/Measurable.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/MeasureManager.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/MeasureManager.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/impl/BasicMeasure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/impl/BasicMeasure.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/impl/CountingMeasure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/impl/CountingMeasure.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/impl/DurationMeasure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/impl/DurationMeasure.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/impl/SimpleMeasureManager.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/impl/SimpleMeasureManager.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/CrossoverOperator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/CrossoverOperator.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/MutationOperator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/MutationOperator.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/SelectionOperator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/SelectionOperator.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/problem/Problem.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/problem/Problem.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/solution/Solution.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/solution/Solution.java
+    # Child of WASFGAMeasures.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/evaluator/SolutionListEvaluator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/evaluator/SolutionListEvaluator.java
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/gwasfga/util/GWASFGARanking.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/gwasfga/util/GWASFGARanking.java
+    # Child of GWASFGARanking.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/mombi/util/AbstractUtilityFunctionsSet.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/mombi/util/AbstractUtilityFunctionsSet.java
+    # Child of GWASFGARanking.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/Ranking.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/Ranking.java
+    # Child of GWASFGARanking.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/impl/GenericSolutionAttribute.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/impl/GenericSolutionAttribute.java
+    # Child of GWASFGARanking.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/impl/NumberOfViolatedConstraints.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/impl/NumberOfViolatedConstraints.java
+    # Child of GWASFGARanking.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/impl/OverallConstraintViolation.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/impl/OverallConstraintViolation.java
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/wasfga/util/WASFGARanking.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/wasfga/util/WASFGARanking.java
+  - target:
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/impl/MeasureFactory.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/impl/MeasureFactory.java
+    # Child of MeasureFactory.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/Measure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/Measure.java
+    # Child of MeasureFactory.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/MeasureListener.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/MeasureListener.java
+    # Child of MeasureFactory.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/PullMeasure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/PullMeasure.java
+    # Child of MeasureFactory.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/PushMeasure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/PushMeasure.java
+    # Child of MeasureFactory.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/JMetalException.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/JMetalException.java
+  - target:
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/solution/impl/VariableFactory.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/solution/impl/VariableFactory.java
+  - target:
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/measure/impl/ListenerTimeMeasure.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/measure/impl/ListenerTimeMeasure.java
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/wasfga/WASFGA.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/wasfga/WASFGA.java
+    # Child of WASFGA.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/algorithm/InteractiveAlgorithm.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/InteractiveAlgorithm.java
+    # Child of WASFGA.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/mombi/AbstractMOMBI.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/mombi/AbstractMOMBI.java
+    # Child of WASFGA.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/mombi/util/ASFWASFGA.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/mombi/util/ASFWASFGA.java
+    # Child of WASFGA.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/wasfga/util/WASFGARanking.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/wasfga/util/WASFGARanking.java
+    # Child of WASFGA.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/wasfga/util/WeightVectors.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/wasfga/util/WeightVectors.java
+    # Child of WASFGA.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/SolutionListUtils.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/SolutionListUtils.java
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/rnsgaii/util/RNSGAIIRanking.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/rnsgaii/util/RNSGAIIRanking.java
+    # Child of RNSGAIIRanking.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/comparator/ObjectiveComparator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/comparator/ObjectiveComparator.java
+    # Child of RNSGAIIRanking.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/pseudorandom/JMetalRandom.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/pseudorandom/JMetalRandom.java
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/nsgaii/DNSGAII.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/nsgaii/DNSGAII.java
+    # Child of DNSGAII.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/impl/selection/RankingAndDirScoreSelection.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/impl/selection/RankingAndDirScoreSelection.java
+  - target:
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/cdg/AbstractCDG.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/cdg/AbstractCDG.java
+    # Child of AbstractCDG.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/algorithm/Algorithm.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/Algorithm.java
+    # Child of AbstractCDG.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/impl/DominanceRanking.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/impl/DominanceRanking.java
+  - target:
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/chartcontainer/ChartContainer.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/chartcontainer/ChartContainer.java
+    # Child of ChartContainer.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/solution/DoubleSolution.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/solution/DoubleSolution.java
+    # Child of ChartContainer.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/front/imp/ArrayFront.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/front/imp/ArrayFront.java
+    # Child of ChartContainer.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/front/util/FrontUtils.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/front/util/FrontUtils.java
+  - target:
+    - dir: jmetal-exec/target/classes
+      file: org/uma/jmetal/experiment/NSGAIIStudy2.class
+      sourceDir: jmetal-exec/src/main/java
+      sourceFile: org/uma/jmetal/experiment/NSGAIIStudy2.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/nsgaii/NSGAIIBuilder.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/nsgaii/NSGAIIBuilder.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/impl/crossover/SBXCrossover.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/impl/crossover/SBXCrossover.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/impl/mutation/PolynomialMutation.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/impl/mutation/PolynomialMutation.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/qualityindicator/impl/hypervolume/PISAHypervolume.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/qualityindicator/impl/hypervolume/PISAHypervolume.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/experiment/Experiment.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/experiment/Experiment.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/experiment/ExperimentBuilder.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/experiment/ExperimentBuilder.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/experiment/util/ExperimentAlgorithm.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/experiment/util/ExperimentAlgorithm.java
+    # Child of NSGAIIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/experiment/util/ExperimentProblem.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/experiment/util/ExperimentProblem.java
+  - target:
+    - dir: jmetal-exec/target/classes
+      file: org/uma/jmetal/experiment/ZDTScalabilityIStudy2.class
+      sourceDir: jmetal-exec/src/main/java
+      sourceFile: org/uma/jmetal/experiment/ZDTScalabilityIStudy2.java
+    # Child of ZDTScalabilityIStudy2.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/smpso/SMPSOBuilder.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/smpso/SMPSOBuilder.java
+    # Child of ZDTScalabilityIStudy2.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/spea2/SPEA2Builder.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/spea2/SPEA2Builder.java
+    # Child of ZDTScalabilityIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/problem/DoubleProblem.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/problem/DoubleProblem.java
+    # Child of ZDTScalabilityIStudy2.class
+    - dir: jmetal-problem/target/classes
+      file: org/uma/jmetal/problem/multiobjective/zdt/ZDT1.class
+      sourceDir: jmetal-problem/src/main/java
+      sourceFile: org/uma/jmetal/problem/multiobjective/zdt/ZDT1.java
+    # Child of ZDTScalabilityIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/archive/impl/CrowdingDistanceArchive.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/archive/impl/CrowdingDistanceArchive.java
+    # Child of ZDTScalabilityIStudy2.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/evaluator/impl/SequentialSolutionListEvaluator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/evaluator/impl/SequentialSolutionListEvaluator.java
+  - target:
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/impl/PreferenceDistance.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/impl/PreferenceDistance.java
+    # Child of PreferenceDistance.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/util/solutionattribute/DensityEstimator.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/util/solutionattribute/DensityEstimator.java
+  - target:
+    - dir: jmetal-exec/target/classes
+      file: org/uma/jmetal/experiment/ZDTStudy.class
+      sourceDir: jmetal-exec/src/main/java
+      sourceFile: org/uma/jmetal/experiment/ZDTStudy.java
+    # Child of ZDTStudy.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/moead/AbstractMOEAD.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/moead/AbstractMOEAD.java
+    # Child of ZDTStudy.class
+    - dir: jmetal-algorithm/target/classes
+      file: org/uma/jmetal/algorithm/multiobjective/moead/MOEADBuilder.class
+      sourceDir: jmetal-algorithm/src/main/java
+      sourceFile: org/uma/jmetal/algorithm/multiobjective/moead/MOEADBuilder.java
+    # Child of ZDTStudy.class
+    - dir: jmetal-core/target/classes
+      file: org/uma/jmetal/operator/impl/crossover/DifferentialEvolutionCrossover.class
+      sourceDir: jmetal-core/src/main/java
+      sourceFile: org/uma/jmetal/operator/impl/crossover/DifferentialEvolutionCrossover.java
